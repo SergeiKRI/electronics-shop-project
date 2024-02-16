@@ -28,6 +28,12 @@ class Item:
 
     def __str__(self):
         return self.__name
+
+    def __add__(self, other):
+        if not isinstance(other, self.__class__):
+            raise ValueError('Не является экземпляром Phone или Item классов')
+        return self.quantity + other.quantity
+
     @property
     def name(self) -> str:
         return self.__name
@@ -76,7 +82,4 @@ class Item:
         """
         return int(float(x))
 
-
-if __name__ == '__main__':
-    pass
 
