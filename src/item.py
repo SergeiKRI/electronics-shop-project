@@ -52,19 +52,11 @@ class Item:
         else:
             self.__name = name
 
-    @property
-    def calculate_total_price(self) -> float:
-        """
-        Рассчитывает общую стоимость конкретного товара в магазине.
-        :return: Общая стоимость товара.
-        """
-        return self.price * self.quantity
 
-    def apply_discount(self) -> None:
-        """
-        Применяет установленную скидку для конкретного товара.
-        """
-        self.price *= Item.pay_rate
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+        Item.all.append(self)
 
     @classmethod
     def instantiate_from_csv(cls, file=NAME_DIR):
